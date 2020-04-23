@@ -1,0 +1,496 @@
+/*トグルメニューのチェックボックス
+	非表示
+*/
+#navTgl {
+	display: none;
+}
+/*メニューアイコンとチェックボックスを連動させるlabel
+	位置を右上に固定
+*/
+label {
+	cursor: pointer;
+	position: fixed;
+	top: 25px;
+	right: 0;
+}
+/*メニューアイコン背景
+	手前に配置*/
+.open {
+	z-index: 20;
+	width: 48px;
+	height: 48px;
+	background-color: #000;
+	transition: background-color .6s, transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+/*開くためのメニューアイコン横線
+	open::before, open::afterで擬似要素を二つ用意し、
+	open span, open::before, open::afterにborder-bottomで線を三つ用意し、
+	open::before, open::afterを上下に8pxずつずらす。
+*/
+.open::before,
+.open::after {
+	content: "";
+}
+.open span,
+.open::before,
+.open::after {
+	content: "";
+	position: absolute;
+	top: calc(50% - 1px);
+	right: 30%;
+	width: 40%;
+	border-bottom: 2px solid #fff;
+	transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.open::before {
+	transform: translateY(-8px);
+}
+.open::after {
+	transform: translateY(8px);
+}
+
+/*閉じた時に画面全体を暗くするための要素*/
+.close {
+	z-index: 5;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	transition: background .6s;
+}
+/*閉じるためのメニューアイコン
+	checkboxがcheckedされた場合、
+		隣接する.openの背景を透過させ
+		隣接する.open spanの線を消去
+		隣接する.open::before, open::afterにそれぞれ時計回りと反時計回りに45度回転
+		直後に続く.closeの背景を7割透過透過の黒にすることで、画面全体を暗くする
+*/
+#navTgl:checked + .open {
+	background: rgba(0,0,0,0);
+	/* transform: translateX(-250px); 左に250px移動*/
+	transform: translateY(-25px)
+}
+#navTgl:checked + .open span {
+	transform: scaleX(0);
+}
+#navTgl:checked + .open::before {
+	transform: rotate(45deg);
+}
+#navTgl:checked + .open::after {
+	transform: rotate(-45deg);
+}
+#navTgl:checked ~ .close {
+	pointer-events: auto;
+	background: rgba(0,0,0,.3);
+}
+
+/*メニュー部分*/
+.menu {
+	z-index: 11;
+	position: fixed;
+	overflow: auto;
+	top: 0;
+	right: 0;
+	width: 250px;
+	height: 100%;
+	margin: 0;
+	padding: 15px 10px;
+	box-sizing: border-box;
+	background: rgba(0,0,0,1);
+	transform: translateX(100%);
+	transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.menu h2,
+.menu a {
+	color: white;
+}
+.menu h2 {
+	text-align: center;
+}
+.menu ul {
+	margin: 0;
+	padding: 0;
+}
+.menu li {
+	font-size: .8em;
+	line-height: 1.4;
+}
+.menu li:not(:first-child) {
+	border-top: 1px solid rgba(255,255,255,.6);
+}
+.menu a {
+	display: block;
+	padding: 1em 2em;
+	text-decoration: inherit;
+	transition: background .6s;
+}
+.menu a:hover {
+	background: #404040;
+}
+#navTgl:checked ~ .menu {
+	transform: none;
+}
+
+/*基本は隠し、幅が小さい場合だけresponsive.cssで対応*/
+.open, .close, .menu {
+	display: none;
+}
+
+
+
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	letter-spacing: .5px;
+	font-family: 'Noto Sans JP', sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+header {
+	padding: 20px 40px;
+  height: 100px;
+	max-width: 1170px;
+	margin: 0 auto;
+  z-index: 10;
+}
+
+header a{
+	color: #000;
+}
+
+header h3{
+	font-family: 'Noto Serif JP', serif;
+	font-weight:300;
+}
+
+header h2{
+	font-family: 'Noto Serif JP', serif;
+	font-weight:700;
+}
+
+.header-left{
+	float: left;
+}
+
+
+.top {
+	max-width: 1170px;
+	margin: 0 auto;
+	padding: 0 40px;
+
+}
+
+.top-photo {
+	max-width: 1170px;
+	margin: 0 auto;
+	padding: 0 40px;
+}
+
+.top-photo > .photo {
+	width: 100%;
+}
+
+.gnav {
+	display: flex;
+	height: 30px;
+	margin: 0 auto;
+	border-left: 1px solid #000000;
+	z-index: 10;
+
+}
+.gnav > li {/*親階層のみ幅を25%にする*/
+	width: 25%;
+}
+/*全てのリスト・リンク共通*/
+.gnav li {
+	position: relative;
+}
+
+.gnav li a {
+	background: #ffffff;
+	/*background: #001b34;*/
+	border-right: 1px solid #000000;
+	color: #000000;
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	width: 100%;
+}
+/*子階層以降共通*/
+
+.gnav li li {
+	/* メニューのサイドを黒くしたい時
+		border-left: 5px solid #000;
+		border-right: 4px solid #000;
+	*/
+	height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 1s;
+}
+
+.gnav li li a {
+	border-right: none;
+  text-align: left;
+  padding-left: 25px;
+	border-top: 1px solid rgba(255,255,255,.5);
+}
+
+.gnav li:hover > ul > li {
+	height: 30px;
+	overflow: visible;
+  opacity: 1;
+}
+
+/* gnavのリストの三角形 */
+.gnav li li:before, .gnav li li:after{
+	content: '';
+	display: inline-block;
+	position: absolute;
+	top: 60%;
+	left: 10px;
+	width: 0;
+	height: 0;
+	margin-top: -5px;
+	border-top: 4px solid transparent;
+	border-right: 6px solid transparent;
+	border-bottom: 4px solid transparent;
+	border-left: 6px solid #fff;
+}
+
+.gnav li li:after{
+	z-index: 1;
+  margin-left: -3px;
+  border-left-color: #000;
+}
+
+.gnav li li:hover:before {
+  border-left-color: rgba( 255, 255, 255, 1);
+}
+
+.gnav li li:hover:after {
+  border-left-color: #404040;
+	transition: border-left-color .5s;
+}
+
+/*aの背景色を指定*/
+.gnav li:hover a {/*親階層*/
+	color: #ffffff;
+	background: #000;
+/*  background: #00305c;*/
+}
+
+.gnav li li a {/*子階層*/
+	background: #000;
+}
+
+.gnav li li:hover a {
+	background: #404040;
+	transition: background .5s;
+}
+
+.gnav > li > ul:before{/*子階層*/
+    border: 5px solid transparent;
+    border-top: 5px solid #000;
+    content: "";
+    right: 1rem;
+    position: absolute;
+    top: 1rem;
+    transform: translateY(-40%);
+}
+
+.gnav > li:hover > ul:before{/*子階層*/
+    border: 5px solid transparent;
+    border-top: 5px solid #fff;
+    content: "";
+    right: 1rem;
+    position: absolute;
+    top: 1rem;
+    transform: translateY(-40%);
+}
+
+
+/* info */
+.info {
+	padding: 20px 20px;
+	max-width: 1170px;
+	margin: 0 auto;
+	text-align: center;
+
+}
+
+.info > .contents{
+	vertical-align: top;
+	margin: 0 20px 20px 20px;
+	width: 45%;
+	display: inline-block;
+	text-align: left;
+}
+
+.section-title {
+	padding-top: 30px;
+	border-bottom: solid 1px #000000;
+}
+
+.contents li {
+	padding: 5px 0;
+	border-bottom: dashed 1px #000000;
+}
+
+.contents li p{
+	padding: 5px 0px 5px 25px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+
+.contents .date{
+	color: gray;
+	width: 120px;
+}
+
+.contents .description{
+	max-width: 300px;
+}
+
+
+/* profile */
+.profile {
+	padding: 70px 40px 20px 40px;
+	max-width: 1170px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+
+.profile > ul > li {
+	padding: 5px 0;
+	border-bottom: dashed 1px #000000;
+}
+
+.profile > ul > li > p {
+	padding: 5px 0px 5px 25px;
+	display: block;
+}
+
+
+.name a{
+	border-bottom: 1px dashed navy;
+	padding-bottom: 2px;
+	color: #000080;
+}
+
+.name span{
+	padding-bottom: 2px;
+	color: #000080;
+}
+
+.major {
+	padding: 5px 0px 5px 110px;
+  text-indent: -85px;
+}
+
+.major span{
+	color: gray;
+}
+
+/* prof */
+.prof {
+	padding: 70px 40px 20px 40px;
+	max-width: 1170px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.prof > h3 {
+	padding: 5px 5px;
+	color: gray;
+}
+
+.prof > ul > li {
+	padding: 5px 20px;
+}
+
+.prof > p {
+	padding: 10px 5px 0px 5px;
+	text-indent: 1em;
+}
+
+.paper-title {
+	color: #000080;
+	padding: 2px 0 2px 1.5em;
+}
+
+.paper-info {
+	padding: 2px 0 7px 2.5em;
+}
+
+/* newsリストの三角形 */
+.date, .name, .paper-title, .item{
+	position: relative;
+}
+
+
+.item a{
+	padding-left: 20px;
+}
+
+.item a::before, .item a::after{
+	z-index: 1;
+	content: '';
+	display: inline-block;
+	position: absolute;
+	top: 58%;
+	left: 10px;
+	width: 0;
+	height: 0;
+	margin-top: -5px;
+	border-top: 4px solid transparent;
+	border-right: 6px solid transparent;
+	border-bottom: 4px solid transparent;
+	border-left: 6px solid #fff;
+}
+.item a::after{
+	z-index: 1;
+  margin-left: -3px;
+  border-left-color: #000;
+	transition: border-left-color .6s;
+}
+.item a:hover::after{
+	z-index: 1;
+  margin-left: -3px;
+  border-left-color: #404040;
+	transition: border-left-color .6s;
+
+}
+
+
+.date:before, .date:after, .name:before, .name:after, .paper-title:before, .paper-title:after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 10px;
+	width: 0;
+	height: 0;
+	margin-top: -5px;
+	border-top: 5px solid transparent;
+	border-right: 6px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 6px solid #000000;
+}
+
+.date:after, .name:after, .paper-title:after {
+  z-index: 1;
+  margin-left: -3px;
+  border-left-color: #ffffff;
+}

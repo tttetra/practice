@@ -1,0 +1,18 @@
+@media (max-width: 1000px) {
+  .info > .contents {
+    width: 85%;
+  }
+  .contents .description{
+  	max-width: 1000px;
+  }
+}
+
+@media (max-width: 670px) {
+  .gnav {
+    display: none;
+  }
+  .open, .close, .menu {
+    display: block;
+  }
+
+}
