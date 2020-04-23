@@ -5,9 +5,15 @@
     padding: 15px 30px;
     height: 80px;
   }
+
+  .profile, .prof {
+  	padding: 60px 30px 15px 30px;
+  }
+
   .info > .contents {
     width: 85%;
   }
+
   .contents .description{
   	max-width: 1000px;
   }
@@ -18,6 +24,9 @@
   header{
     padding: 10px 20px;
     height: 70px;
+  }
+  .profile, .prof {
+  	padding: 20px 20px 10px 20px;
   }
   .gnav {
     display: none;
