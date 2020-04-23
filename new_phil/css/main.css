@@ -174,7 +174,7 @@ label {
 	transition: background .6s;
 	font-size: 14px;
 	font-family: 'Noto Sans JP', sans-serif;
-	font-weight: 100;
+	font-weight: 300;
 }
 .menu ul a:hover {
 	background: #404040;
