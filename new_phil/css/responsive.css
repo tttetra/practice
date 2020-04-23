@@ -1,5 +1,10 @@
 @media (max-width: 1000px) {
   html { font-size: 90%; }
+
+  header{
+    padding: 15px 30px;
+    height: 80px;
+  }
   .info > .contents {
     width: 85%;
   }
@@ -10,7 +15,10 @@
 
 @media (max-width: 670px) {
   html { font-size: 75%; }
-  
+  header{
+    padding: 10px 20px;
+    height: 70px;
+  }
   .gnav {
     display: none;
   }

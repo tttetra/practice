@@ -10,7 +10,7 @@
 label {
 	cursor: pointer;
 	position: fixed;
-	top: 25px;
+	top: 12px;
 	right: 0;
 }
 /*メニューアイコン背景
@@ -68,7 +68,7 @@ label {
 #navTgl:checked + .open {
 	background: rgba(0,0,0,0);
 	/* transform: translateX(-250px); 左に250px移動*/
-	transform: translateY(-25px)
+	transform: translateY(-12px)
 }
 #navTgl:checked + .open span {
 	transform: scaleX(0);
