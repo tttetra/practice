@@ -451,16 +451,17 @@ header h2{
 	content: '';
 	display: inline-block;
 	position: absolute;
-	top: 58%;
-	left: 10px;
+	top: 50%;
+	left: 5px;
 	width: 0;
 	height: 0;
 	margin-top: -5px;
-	border-top: 4px solid transparent;
-	border-right: 6px solid transparent;
-	border-bottom: 4px solid transparent;
-	border-left: 6px solid #fff;
+	border-top: 5px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-left: 8px solid #fff;
 }
+
 .item a::after{
 	z-index: 1;
   margin-left: -3px;

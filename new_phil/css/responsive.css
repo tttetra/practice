@@ -20,7 +20,6 @@
 }
 
 @media (max-width: 670px) {
-  html { font-size: 85%; }
   header{
     padding: 10px 20px;
     height: 70px;
