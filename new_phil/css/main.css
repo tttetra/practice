@@ -106,6 +106,7 @@ label {
 }
 .menu h2 {
 	text-align: center;
+	font-size: 28px;
 }
 .menu ul {
 	margin: 0;
@@ -123,6 +124,7 @@ label {
 	padding: 1em 2em;
 	text-decoration: inherit;
 	transition: background .6s;
+	font-size: 16px;
 }
 .menu a:hover {
 	background: #404040;
