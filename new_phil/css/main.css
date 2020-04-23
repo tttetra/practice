@@ -91,7 +91,7 @@ label {
 	overflow: auto;
 	top: 0;
 	right: 0;
-	width: 200px;
+	width: 250px;
 	height: 100%;
 	margin: 0;
 	padding: 10px 10px;
@@ -125,7 +125,7 @@ label {
 }
 .menu ul a {
 	display: block;
-	padding: 10px 20px;
+	padding: 15px 20px;
 	text-decoration: inherit;
 	transition: background .6s;
 	font-size: 14px;
