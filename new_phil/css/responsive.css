@@ -8,6 +8,8 @@
 }
 
 @media (max-width: 670px) {
+  html { font-size: 75%; }
+  
   .gnav {
     display: none;
   }
