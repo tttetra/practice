@@ -5,6 +5,9 @@
     padding: 15px 30px;
     height: 80px;
   }
+  .top, .top-photo {
+    padding: 0 30px;
+  }
 
   .profile, .prof {
   	padding: 60px 30px 15px 30px;
@@ -30,6 +33,10 @@
   .gnav {
     display: none;
   }
+  .top, .top-photo {
+    padding: 0 20px;
+  }
+
   .open, .close, .menu {
     display: block;
   }

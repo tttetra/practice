@@ -1,3 +1,48 @@
+
+
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	letter-spacing: .5px;
+	font-family: 'Noto Sans JP', sans-serif;
+	font-weight: 300;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+header {
+	padding: 20px 40px;
+  height: 100px;
+	max-width: 1170px;
+	margin: 0 auto;
+  z-index: 10;
+}
+
+header a{
+	color: #000;
+}
+
+header h3{
+	font-family: 'Noto Serif JP', serif;
+	font-weight:300;
+}
+
+header h2{
+	font-family: 'Noto Serif JP', serif;
+	font-weight:700;
+}
+
+.header-left{
+	float: left;
+}
+
 /*トグルメニューのチェックボックス
 	非表示
 */
@@ -119,16 +164,17 @@ label {
 .menu li {
 	font-size: .8em;
 	line-height: 1.4;
+	border-bottom: 1px solid rgba(255,255,255,.6);
 }
-.menu li:not(:first-child) {
-	border-top: 1px solid rgba(255,255,255,.6);
-}
+
 .menu ul a {
 	display: block;
-	padding: 15px 20px;
+	padding: 15px 20px 15px 20px;
 	text-decoration: inherit;
 	transition: background .6s;
 	font-size: 14px;
+	font-family: 'Noto Sans JP', sans-serif;
+	font-weight: 100;
 }
 .menu ul a:hover {
 	background: #404040;
@@ -142,51 +188,6 @@ label {
 .open, .close, .menu {
 	display: none;
 }
-
-
-
-*{
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	letter-spacing: .5px;
-	font-family: 'Noto Sans JP', sans-serif;
-}
-
-a {
-	text-decoration: none;
-}
-
-li {
-	list-style: none;
-}
-
-header {
-	padding: 20px 40px;
-  height: 100px;
-	max-width: 1170px;
-	margin: 0 auto;
-  z-index: 10;
-}
-
-header a{
-	color: #000;
-}
-
-header h3{
-	font-family: 'Noto Serif JP', serif;
-	font-weight:300;
-}
-
-header h2{
-	font-family: 'Noto Serif JP', serif;
-	font-weight:700;
-}
-
-.header-left{
-	float: left;
-}
-
 
 .top {
 	max-width: 1170px;
@@ -231,6 +232,8 @@ header h2{
 	line-height: 30px;
 	text-align: center;
 	width: 100%;
+	font-family: 'Noto Sans JP', sans-serif;
+	font-weight: 100;
 }
 /*子階層以降共通*/
 
@@ -456,26 +459,26 @@ header h2{
 	content: '';
 	display: inline-block;
 	position: absolute;
-	top: 52%;
+	top: 50%;
 	left: 5px;
 	width: 0;
 	height: 0;
 	margin-top: -5px;
 	border-top: 5px solid transparent;
-	border-right: 8px solid transparent;
+	border-right: 6px solid transparent;
 	border-bottom: 5px solid transparent;
-	border-left: 8px solid #fff;
+	border-left: 6px solid #fff;
 }
 
 .item a::after{
 	z-index: 1;
-  margin-left: -3px;
+  margin-left: -2px;
   border-left-color: #000;
 	transition: border-left-color .6s;
 }
 .item a:hover::after{
 	z-index: 1;
-  margin-left: -3px;
+  margin-left: -2px;
   border-left-color: #404040;
 	transition: border-left-color .6s;
 
